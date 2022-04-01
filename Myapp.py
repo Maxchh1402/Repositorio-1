@@ -3,6 +3,9 @@ st. title("mi pirmer app")
 click=st.button("dale click")
 st.write("el valor de click es:", click)
 #st.button("otro boton")
+
+if click==True:
+    st.image("LOGO UACH.png")
 import pandas as pd
 
 #1er ejecicio
