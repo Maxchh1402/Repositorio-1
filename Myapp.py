@@ -10,7 +10,7 @@ import pandas as pd
 #st.write(df)
 
 #st.map(df)
-<<<<<<< HEAD
+
 st.text("hola mundo")
 st.text("la siguiente es una integral")
 st.latex("\int_1^6")
