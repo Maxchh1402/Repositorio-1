@@ -34,3 +34,9 @@ nn1=stnumber_input("dame n1")
 nn2=stnumber_input("dame n2")
 mult=nn1*nn2
 st.write("la multiplicacion",nn1,"y",nn2,"es:",mult)
+
+with st.sidebar:
+    num1 = st.slider('Elige un numero 1',0.0,100.0,25.0)
+    num2 = st.slider('Elige un numero 2',0.0,100.0,25.0)
+    click=st.button("dale click")
+    st.write("el valor de click es:", click)
