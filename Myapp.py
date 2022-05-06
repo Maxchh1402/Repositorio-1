@@ -22,25 +22,37 @@ import pandas as pd
 #st.latex("\int_1^6")
 #st.markdown("*este es una viñeta*")
 
-num1 = st.slider('Elige un numero 1',0.0,100.0,25.0)
-num2 = st.slider('Elige un numero 2',0.0,100.0,25.0)
-suma= num1+num2
-st.write("la suma de",num1,"y",num2,"es:",suma)
+plt.style.use("ggplot")
 
-st.write("Ahora multipliquemos")
+data = {
+    "num":[x for x in range(1,11)],
+    "square":[x**2 for x in range(1,11)],
+    "twice":[x*2 for x in range(1,11)],
+    "thrice":[x*3 for x in range(1,11)]
+}
+rad =st.sidebar.radio("Navigation",["Home","About Us"])
 
-nn1= st.number_input("dame n1")
-nn2= st.number_input("dame n2")
-mult= nn1*nn2
-st.write("la multiplicacion",nn1,"y",nn2,"es:",mult)
+if rad == "Home":
+    df = pd.DataFrame(data = data)
 
-with st.sidebar:
-    num1 = st.slider('Elige un numero 1',0.0,100.0,25.0)
-    num2 = st.slider('Elige un numero 2',0.0,100.0,25.0)
-    suma= num1+num2
-    click=st.button("dale click")
+    col = st.sidebar.multiselect("Select a Column",df.columns)
 
-    st.write("el valor de click es:", click)
-    
-    st.markdown("<h1 style='text-align: center; color: red;'>Some title</h1>", unsafe_allow_html=True)
+    plt.plot(df['num'],df[col])
+
+    st.pyplot()
+
+if rad == "About Us":
+
+    progress = st.progress(0)
+    for i in range(100):
+        time.sleep(0.1)
+        progress.progress(i+1)    
+
+    st.balloons()
+
+    st.error("Error")
+    st.success("Show Success")
+    st.info("Information")
+    st.exception(RuntimeError("this is an error"))
+    st.warning("this is a warning")
     
